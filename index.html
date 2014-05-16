@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>js-canvas-game-architecture</title>
-    <link rel="stylesheet" href="main.css" type="text/css" />
-    <script src="main.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JS Canvas Game Architecture</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>JS Canvas Game Architecture</h1>
-        <canvas id="Stage" height="300" width="520"></canvas>
+    <div id="Container">
+        <h1>
+            <a href="https://github.com/philpill/js-canvas-game-architecture">
+                JS Canvas Game Architecture
+            </a>
+        </h1>
+
+        <div class="control-panel">
+            <p>Timeout: <span id="Timeout">0</span></p>
+            <p>FPS: <span id="Fps"></span></p>
+
+            <a id="Pause" class="control" href="#">Pause</a>
+            <a id="Resume" class="control" href="#">Resume</a>
+        </div>
+
+        <canvas id="Canvas" height="260" width="150"></canvas>
     </div>
+    <script src="js/microevent.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/heartbeat.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/interface.js"></script>
+    <script src="js/ticker.js"></script>
+    <script src="js/core.js"></script>
 </body>
 </html>
