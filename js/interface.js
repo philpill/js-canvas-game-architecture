@@ -1,6 +1,6 @@
 (function(window, document, undefined){
 
-    window.LOOPER = window.LOOPER || {};
+    window.SHAPER = window.SHAPER || {};
 
     var Interface = function (config) {
 
@@ -93,6 +93,6 @@
 
     MicroEvent.mixin(Interface);
 
-    window.LOOPER.Interface = Interface;
+    window.SHAPER.Interface = Interface;
 
 })(window, document);

@@ -1,6 +1,6 @@
 (function(window, document, undefined){
 
-    window.LOOPER = window.LOOPER || {};
+    window.SHAPER = window.SHAPER || {};
 
     var Ticker = function (config) {
 
@@ -48,6 +48,6 @@
 
     MicroEvent.mixin(Ticker);
 
-    window.LOOPER.Ticker = Ticker;
+    window.SHAPER.Ticker = Ticker;
 
 })(window, document);

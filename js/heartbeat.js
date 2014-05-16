@@ -1,6 +1,6 @@
 (function(window, document, undefined){
 
-    window.LOOPER = window.LOOPER || {};
+    window.SHAPER = window.SHAPER || {};
 
     var Heartbeat = function (config) {
 
@@ -54,6 +54,6 @@
 
     MicroEvent.mixin(Heartbeat);
 
-    window.LOOPER.Heartbeat = Heartbeat;
+    window.SHAPER.Heartbeat = Heartbeat;
 
 })(window, document);

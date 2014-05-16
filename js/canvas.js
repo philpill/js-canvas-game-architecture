@@ -1,6 +1,6 @@
 (function(window, document, undefined){
 
-    window.LOOPER = window.LOOPER || {};
+    window.SHAPER = window.SHAPER || {};
 
     var Canvas = function (config) {
 
@@ -15,7 +15,7 @@
 
             this.canvas = document.getElementById('Canvas');
             this.ctx = this.canvas.getContext("2d");
-            this.heartbeat = new window.LOOPER.Heartbeat({
+            this.heartbeat = new window.SHAPER.Heartbeat({
                 ctx     : this.ctx,
                 rate    : this.beatRate
             });
@@ -29,19 +29,35 @@
 
             this[command + 'Command'](e);
         },
-        tickCommand : function (e) {
+        tickCommand : function (args) {
 
             this.clear();
-            this.heartbeat.execute('tick', e);
+            this.render(args.shapes);
+            this.heartbeat.execute('tick', args.e);
         },
         clear : function () {
 
             this.canvas.width = this.canvas.width;
+        },
+        render : function (objects) {
+
+            var l = objects.length;
+
+            while (l--) {
+
+                if (objects[l].type === 'square') {
+                    this.renderSquare(objects[l]);
+                }
+            }
+        },
+        renderSquare : function (shape) {
+            this.ctx.rect(shape.x, shape.y, shape.width, shape.height);
+            this.ctx.stroke();
         }
     }
 
     MicroEvent.mixin(Canvas);
 
-    window.LOOPER.Canvas = Canvas;
+    window.SHAPER.Canvas = Canvas;
 
 })(window, document);

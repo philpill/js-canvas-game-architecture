@@ -1,8 +1,8 @@
 (function(window, document, undefined){
 
-    window.LOOPER = window.LOOPER || {};
+    window.SHAPER = window.SHAPER || {};
 
-    window.LOOPER.state = {
+    window.SHAPER.state = {
 
         timeout : 50,
         isPaused : false,
