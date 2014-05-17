@@ -16,18 +16,27 @@
 
             this.shapes = [];
 
-            this.shapes.push(this.createShape());
+            this.shapes.push(this.createShape1());
+            this.shapes.push(this.createShape2());
         },
-        contains : function (mouseX, mouseY) {
+        createShape1 : function () {
 
-            var inX = (this.x <= mouseX) && (mouseX <= this.x + this.width);
-            var inY = (this.y <= mouseY) && (mouseY <= this.y + this.height);
-
-            return (inX && inY);
+            return new window.SHAPER.Square({
+                id : 1,
+                height : 10,
+                width : 10,
+                x : 30,
+                y : 30
+            });
         },
-        createShape : function () {
+        createShape2 : function () {
 
-            return new window.SHAPER.Shape();
+            return new window.SHAPER.Circle({
+                id : 2,
+                radius : 10,
+                x : 60,
+                y : 50
+            });
         },
         loadModules : function (config) {
 
@@ -59,7 +68,7 @@
             var objects = [];
             var l = this.shapes.length;
             while (l--) {
-                if (this.contains.call(this.shapes[l], e.x, e.y)) {
+                if (this.shapes[l].contains(e.x, e.y)) {
                     objects.push(this.shapes[l]);
                 }
             }
@@ -97,9 +106,10 @@
             });
 
             this.canvas.bind('click', function(e) {
-                console.log('canvas:click');
                 var object = that.getClickedObject(that.getMouse(e));
-                console.log(object);
+                if (object) {
+                    console.log(object);
+                }
             });
 
             this.ticker.bind('pause', function(e) {

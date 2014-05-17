@@ -47,12 +47,22 @@
 
                 if (objects[l].type === 'square') {
                     this.renderSquare(objects[l]);
+
+                } else if (objects[l].type === 'circle') {
+                    this.renderCircle(objects[l]);
                 }
             }
         },
         renderSquare : function (shape) {
             this.ctx.rect(shape.x, shape.y, shape.width, shape.height);
             this.ctx.stroke();
+        },
+        renderCircle : function (shape) {
+
+            this.ctx.beginPath();
+            this.ctx.arc(shape.x, shape.y, shape.radius, shape.start, shape.end);
+            this.ctx.stroke();
+
         }
     }
 

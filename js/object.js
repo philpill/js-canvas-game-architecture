@@ -2,29 +2,28 @@
 
     window.SHAPER = window.SHAPER || {};
 
-    var Shape = function () {
+    var CanvasObject = function () {
 
-        this.type = 'square';
-        this.height = 10;
-        this.width = 10;
-        this.x = 30;
-        this.y = 30;
-        this.fillColor = '#0000ff';
+        this.zIndex = 0;
+        this.type = 'object';
+        this.height = 0;
+        this.width = 0;
+        this.x = 0;
+        this.y = 0;
+        this.lineWidth = 0;
+        this.fillStyle = '#ffffff';
+        this.strokeStyle = '#000000';
     }
 
-    Shape.prototype = {
+    CanvasObject.prototype = {
 
-        constructor : Shape,
+        constructor : CanvasObject,
 
         execute : function (command, e) {
 
             this[command + 'Command'](e);
         },
         tickCommand : function (e) {
-
-            this.render();
-        },
-        render : function () {
 
         },
         serialize : function () {
@@ -37,13 +36,15 @@
                 width       : this.width,
                 x           : this.x,
                 y           : this.y,
-                fillColor   : this.fillColor
+                lineWidth   : this.lineWidth,
+                fillStyle   : this.fillColor,
+                strokeStyle : this.strokecolour
             }
         }
     }
 
-    MicroEvent.mixin(Shape);
+    MicroEvent.mixin(CanvasObject);
 
-    window.SHAPER.Shape = Shape;
+    window.SHAPER.CanvasObject = CanvasObject;
 
 })(window, document);
