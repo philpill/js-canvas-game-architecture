@@ -60,7 +60,9 @@
         renderCircle : function (shape) {
 
             this.ctx.beginPath();
+            this.ctx.fillStyle = shape.fillStyle;
             this.ctx.arc(shape.x, shape.y, shape.radius, shape.start, shape.end);
+            this.ctx.fill();
             this.ctx.stroke();
 
         }

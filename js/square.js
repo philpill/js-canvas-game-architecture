@@ -10,7 +10,8 @@
         this.width = args.width || 10;
         this.x = args.x || 30;
         this.y = args.y || 30;
-        this.fillColor = '#0000ff';
+        this.fillStyle = '#0000ff';
+        this.clickable = true;
     }
 
     // JavaScript Inheritance Done Right
@@ -36,7 +37,7 @@
             width       : this.width,
             x           : this.x,
             y           : this.y,
-            fillColor   : this.fillColor
+            fillStyle   : this.fillStyle
         }
     };
 

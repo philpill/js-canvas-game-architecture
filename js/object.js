@@ -13,6 +13,9 @@
         this.lineWidth = 0;
         this.fillStyle = '#ffffff';
         this.strokeStyle = '#000000';
+        this.clickable = false;
+        this.focusable = false;
+        this.hasFocus = false;
     }
 
     CanvasObject.prototype = {
@@ -37,8 +40,27 @@
                 x           : this.x,
                 y           : this.y,
                 lineWidth   : this.lineWidth,
-                fillStyle   : this.fillColor,
+                fillStyle   : this.fillStyle,
                 strokeStyle : this.strokecolour
+            }
+        },
+        blurCommand : function (e) {
+
+            if (this.hasFocus) {
+                this.hasFocus = false;
+            }
+        },
+        focusCommand : function (e) {
+
+            if (this.focusable) {
+                this.hasFocus = true;
+                this.fillStyle = 'silver';
+            }
+        },
+        clickCommand : function (e) {
+
+            if (this.clickable) {
+                console.log(this);
             }
         }
     }

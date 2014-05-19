@@ -11,7 +11,9 @@
         this.end = args.end || 2*Math.PI;
         this.x = args.x || 30;
         this.y = args.y || 30;
-        this.fillColor = '#0000ff';
+        this.fillStyle = '#0000ff';
+        this.clickable = true;
+        this.focusable = true;
     }
 
     // JavaScript Inheritance Done Right
@@ -35,7 +37,7 @@
             end         : this.end,
             x           : this.x,
             y           : this.y,
-            fillColor   : this.fillColor
+            fillStyle   : this.fillStyle
         }
     };
 

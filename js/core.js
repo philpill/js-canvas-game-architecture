@@ -93,6 +93,13 @@
             return {x: mx, y: my};
         },
 
+        blurObjects : function () {
+            var l = this.shapes.length;
+            while (l--) {
+                this.shapes[l].execute('blur');
+            }
+        },
+
         bindEvents : function (config) {
 
             var that = this;
@@ -108,7 +115,9 @@
             this.canvas.bind('click', function(e) {
                 var object = that.getClickedObject(that.getMouse(e));
                 if (object) {
-                    console.log(object);
+                    that.blurObjects();
+                    object.execute('focus', e);
+                    object.execute('click', e);
                 }
             });
 
